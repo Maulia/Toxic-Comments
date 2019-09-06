@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Toxic Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Menyisipkan Bootstrap -->
+  <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}" />
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/test.css')}}">
+
+  <link href="https://fonts.googleapis.com/css?family=Livvic&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lexend+Deca|Livvic&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<div class="jumbotron jumbotron-fluid text-center">
+  <h1>Toxic Comment Classifier</h1>
+</div>
+
+<div class="container text-center" id="input_toxic">
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <h3> Final Project DTS FTUI 2019 </h3>
+      <h5>Erlangga</h5>
+      <h5>Maulia Harjono</h5>
+      <h5>Nadya Safitri</h5>
+      <h5>Pray Somaldo</h5>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
+  <div class="container">
+    <h3 class="navbar-brand">AI-03 DTS FTUI</h3>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{url_for('index')}}">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('about')}}">About</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Menyisipkan JQuery dan Javascript Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/test.js"></script>
+
+</body>
+
+</html>

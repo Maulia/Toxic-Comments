@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Toxic Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Menyisipkan Bootstrap -->
+  <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}" />
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/test.css')}}">
+
+  <link href="https://fonts.googleapis.com/css?family=Livvic&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lexend+Deca|Livvic&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="jumbotron jumbotron-fluid text-center">
+  <h1>Toxic Comment Classifier</h1>
+</div>
+
+<div class="container text-center" id="input_container">
+  <div class="row" id="input-row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <form action="{{url_for('predict')}}" method="POST">
+        <div class="form-group">
+          <label for="text"></label>
+          <input type="text" name="text" class="form-control" id="toxic_text" placeholder="Tuliskan Komentar Anda">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary" value="predict">Prediksi Komentar</button>
+        </div>
+        <div>
+          <h5>Hasil prediksi komentar akan muncul dibawah</h5>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+
+<div class="container text-center" id="output-container">
+  <div class="row" id="output-row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      {% for list in predict %}
+        {% if list == 'SARA'%}
+        <img src="static/img/sara.png" width="150px" height="150px" alt="sara">
+        {% elif list == 'PORNOGRAFI'%}
+        <img src="static/img/porno.png" width="150px" height="150px" alt="pornografi">
+        {% elif list == 'RADIKALISME'%}
+        <img src="static/img/radikal.png" width="150px" height="150px" alt="radikalisme">
+        {% elif list == 'PENCEMARAN NAMA BAIK'%}
+        <img src="static/img/cemar.png" width="150px" height="150px" alt="pencemaran">
+        {% elif list == 'NETRAL' %}
+        <h2>Komentar anda tidak tergolong<i>Toxic</i></h2>
+        {% else %}
+        <h2 for="text">{{list}}</h2>
+        {% endif %}
+      {% endfor %} 
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
+  <div class="container">
+    <h3 class="navbar-brand">AI-03 DTS FTUI</h3>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{url_for('index')}}">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('about')}}">About</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Menyisipkan JQuery dan Javascript Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/test.js"></script>
+
+</body>
+
+</html>
